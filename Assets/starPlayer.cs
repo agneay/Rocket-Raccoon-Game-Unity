@@ -7,6 +7,7 @@ public class starPlayer : MonoBehaviour
     public int starCount = 0;
     public TMP_Text StarText;
     public TMP_Text timeText;
+    public gamemasterController gamemaster;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,9 +18,9 @@ public class starPlayer : MonoBehaviour
     void Update()
     {
         StarText.SetText("Score : " + starCount);
-        if (starCount < 3)
+        if (starCount < 3 && gamemaster.gameStarted == true)
         {
-            timeText.SetText("Time : " + Mathf.Round(Time.time));
+            timeText.SetText("Time : " + Mathf.Round(Time.time-gamemaster.startTime));
 
         }
     }
